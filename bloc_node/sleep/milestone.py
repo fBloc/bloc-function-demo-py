@@ -3,9 +3,9 @@ from typing import List
 
 
 class ProgressMileStone(int, Enum):
-    suc_parsed_param = 0
-    start_sleep = 1
-    finished_sleep = 2
+    parsing_param = 0
+    sleeping = 1
+    finished = 2
 
     @property
     def milestone_index(self) -> int:

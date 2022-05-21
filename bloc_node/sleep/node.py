@@ -48,24 +48,27 @@ class SleepNode(FunctionInterface):
     ) -> FunctionRunOpt:
         queue.report_log(log_level=LogLevel.info, msg="start")
 
-        to_sleep_second = ipts[0].components[0].value
-
         # report progress_milestone
         queue.report_high_readable_progress(
-            progress_milestone_index=ProgressMileStone.suc_parsed_param.milestone_index)
+            progress_milestone_index=ProgressMileStone.parsing_param.milestone_index)
         
+        to_sleep_second = ipts[0].components[0].value
+
         queue.report_high_readable_progress(
-            progress_milestone_index=ProgressMileStone.start_sleep.milestone_index)
+            progress_milestone_index=ProgressMileStone.sleeping.milestone_index)
         queue.report_log(log_level=LogLevel.info, msg="start sleep")
+
         for i in range(to_sleep_second):
-            # report progress percent!
-            queue.report_high_readable_progress(
-                progress_percent=i*100 / to_sleep_second)
-            # report log
-            queue.report_log(log_level=LogLevel.info, msg=f"sleeped {i}/{to_sleep_second} seconds")
+            # report progress percent every one second
+            queue.report_high_readable_progress(progress_percent=i*100 / to_sleep_second)
+            # report log every one second
+            queue.report_log(
+                log_level=LogLevel.info, 
+                msg=f"sleepped {i}/{to_sleep_second} seconds")
             sleep(1)
+
         queue.report_high_readable_progress(
-            progress_milestone_index=ProgressMileStone.finished_sleep.milestone_index)
+            progress_milestone_index=ProgressMileStone.finished.milestone_index)
         
         queue.report_log(log_level=LogLevel.info, msg="finished")
         queue.report_function_run_finished_opt(
