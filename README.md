@@ -1,4 +1,5 @@
 # bloc-function-demo-python
+[中文版](/README.zh-CN.md)
 
 ## Project mission
 This project has 2 missions：
@@ -7,7 +8,7 @@ This project has 2 missions：
 
 ## How to learn develop bloc function by this project
 ### Entrance
-- Entrance content is in main.go:
+- Entrance content is in main.py:
     ```python
     import asyncio
 
@@ -34,6 +35,7 @@ This project has 2 missions：
         ).build_up()
 
         # Recommend group bloc functions, like below put all stock monitor about bloc functions into one group
+        # (of course you can split function in other way, like by team/code repo/language...)
         stock_function_group = bloc_client.register_function_group("Stock Monitor")
         # Every add_function method added a bloc function to register
         # so you can jump to each of it to learn how the bloc function is developed
@@ -55,7 +57,7 @@ This project has 2 missions：
 
 
 ## What you can learn from each demo function
-If you have not read [basic doc](https://github.com/fBloc/bloc-client-python#readme). Please read that first.
+> Please make sure you have already read [the basic doc](https://github.com/fBloc/bloc-client-python#readme) about bloc function before continue
 
 First of all, every bloc function implemented [FunctionInterface](https://github.com/fBloc/bloc-client-python/blob/main/bloc_client/function_interface.py#L10) And have unittest code. 
 
